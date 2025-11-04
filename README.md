@@ -24,7 +24,9 @@ This is an Oracle-based relational database design for a lending system. It is d
   Simulates email reminders by inserting messages into `EMAIL_QUEUE` from `V_OVERDUE_LOANS`.
 
 - `erd.png`  
-  
+<p align="center">
+  <img src="erd.png" alt="ERD — Lending database" width="1400"/>
+</p>
 
 
 ---
