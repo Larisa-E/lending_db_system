@@ -23,11 +23,11 @@ This is an Oracle-based relational database design for a lending system. It is d
 - `send_overdue_emails.sql`  
   Simulates email reminders by inserting messages into `EMAIL_QUEUE` from `V_OVERDUE_LOANS`.
 
-- `erd.png`  
+- `erd.png` ERD (diagram)
+  The ERD image is included in this repository as `erd.png`. See the "ERD — How I created the diagram from the Oracle database" section below for the exact steps I used to reverse‑engineer the diagram from the live LENDING schema. The image is also shown here for convenience:
 <p align="center">
   <img src="erd.png" alt="ERD — Lending database" width="1400"/>
 </p>
-
 
 ---
 
@@ -235,24 +235,5 @@ WHERE table_name = 'LOAN' AND column_name IN ('STUDENT_ID','COMPUTER_ID');
 
 
 
-
-```
-- 
-
-
-Short video demo script (what to record & say)
-- Intro (10s): "This demo shows the Laptop Lending DB. I'll create the schema, populate sample data and show required functionality."
-- Show GitHub repo and files (10s).
-- Connect as SYS (Role=SYSDBA) to XEPDB1 — run `ALTER SESSION SET CONTAINER = XEPDB1;` and show result (5s).
-- Run `setup_user.sql` as SYS (show output) — explain you created user `LENDING` (10s).
-- Switch to `LENDING` connection and run `schema_oracle.sql` (F5) — scroll through created tables and explain each briefly: COMPUTER, STUDENT, LOAN, lookups (30s).
-- Run `views_and_queries.sql` — explain each view: active, overdue, available, history (20s).
-- Run `smoke_test.sql` — then run `SELECT * FROM V_ACTIVE_LOANS;` — explain the loan data (20s).
-- Simulate overdue, run `V_OVERDUE_LOANS`, run `send_overdue_emails.sql` and show `SELECT * FROM EMAIL_QUEUE;` (20s).
-- Return the laptop, show `V_AVAILABLE_COMPUTERS` again (10s).
-- Open `erd.mmd` in mermaid.live and export `erd.png` (15s).
-- End: show README and REPORT included in repo (10s).
-
----
 
 
