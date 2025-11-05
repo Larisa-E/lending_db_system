@@ -6,7 +6,7 @@ This is an Oracle-based relational database design for a lending system. It is d
 - `setup_user.sql`  
   Creates the project schema (Oracle user) `LENDING` and grants the required privileges. Run once as SYS with role SYSDBA in the PDB (XEPDB1).
 
-- `schema_oracle.sql`  
+- `schema.sql`  
   Creates tables, indexes, constraints, triggers and seed lookup data. This is the core of the database model (BRAND, COMPUTER_MODEL, MOUSE_TYPE, COMPUTER, STUDENT, LOAN, etc.). Run as LENDING.
 
 - `views_and_queries.sql`  
@@ -92,7 +92,7 @@ SELECT user, sys_context('USERENV','CON_NAME') FROM dual;
 ```
 
 4) Run the schema (create tables, triggers, seed data)
-- Open `schema_oracle.sql` with the LENDING connection selected.
+- Open `schema.sql` with the LENDING connection selected.
 - Run Script (F5).
 - What happens:
   - Lookup tables (BRAND, COMPUTER_MODEL, MOUSE_TYPE, POSTAL_CODE, STUDENT_CLASS) are created.
@@ -109,7 +109,7 @@ SELECT user, sys_context('USERENV','CON_NAME') FROM dual;
 - Expected: "View created" messages for `V_ACTIVE_LOANS`, `V_OVERDUE_LOANS`, `V_AVAILABLE_COMPUTERS`, `V_LOAN_HISTORY`.
 
 6) Smoke test — insert sample data & create a loan (safe)
-- Open `smoke_test.sql` with LENDING connection and run (F5). This script will:
+- Open `test.sql` with LENDING connection and run (F5). This script will:
   - Insert `PC-0722` 
   - Insert `S-1001` 
   - Insert a LOAN for the student/computer only if computer is available
